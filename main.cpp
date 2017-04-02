@@ -68,10 +68,39 @@ void check_vector() {
 }
 
 void check_stack() {
+	stack* st = new stack();
 
+	for (int i = 0; i < 10; i++) {
+		st->push(i);
+	}
+
+	cout << st->size() << endl; //должно быть 10
+
+	// должно получиться "9 8 7 6 5 4 3 2 1 0"
+	while (st->size() > 0) {
+		cout << st->pop() << " ";
+	}
+	cout << endl;
+
+	delete st;
 }
 
 void check_queue() {
+	queue* q = new queue();
+
+	for (int i = 0; i < 10; i++) {
+		q->enqueue(i);
+	}
+
+	cout << q->size() << endl; //должно быть 10
+
+	// должно получиться "0 1 2 3 4 5 6 7 8 9"
+	while (q->size() > 0) {
+		cout << q->dequeue() << " ";
+	}
+	cout << endl;
+
+	delete q;
 
 }
 
@@ -88,7 +117,7 @@ void check_minqueue() {
 int main() {
 	// раскомментируйте вызов соответствующего метода для структуры данных, которую хотите проверить
 	//check_list();
-	//check_vector();
+	check_vector();
 	//check_stack();
 	//check_queue();
 	//check_minstack();
