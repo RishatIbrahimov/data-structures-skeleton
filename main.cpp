@@ -8,6 +8,7 @@
 #include "queue.h"
 #include "minstack.h"
 #include "minqueue.h"
+#include "priority_queue.h"
 
 using namespace std;
 
@@ -110,6 +111,24 @@ void check_minstack() {
 
 void check_minqueue() {
 
+}
+
+void check_priority_queue() {
+	priority_queue* pq = new priority_queue();
+
+	pq -> enqueue(10);
+
+	pq -> enqueue(8);
+
+	pq -> enqueue(15);
+
+
+	// должно быть выведено 15 10 8
+	cout << pq -> dequeue() << endl;
+	cout << pq -> dequeue() << endl;
+	cout << pq -> dequeue() << endl;
+
+	delete pq;
 }
 
 
