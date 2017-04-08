@@ -141,6 +141,7 @@ int main() {
 	//check_queue();
 	//check_minstack();
 	//check_minqueue();
+	//check_priority_queue();
 
 	return 0;
 }
