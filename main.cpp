@@ -9,8 +9,8 @@
 #include "minstack.h"
 #include "minqueue.h"
 #include "priority_queue.h"
+#include "tree.h"
 
-using namespace std;
 
 void check_list() {
 	list* l = new list();
@@ -21,21 +21,21 @@ void check_list() {
 
 	// выведем на экран, должно получиться "0 1 2 3 4 5 6 7 8 9"
 	for (int i = 0; i < 10; i++) {
-		cout << l->get(i) << " ";
+		std::cout << l->get(i) << " ";
 	}
-	cout << endl;
+	std::cout << std::endl;
 
 	//удаляем первый элемент, должно быть выведено "1"
 	l->remove(0);
-	cout << l->get(0) << endl;
+	std::cout << l->get(0) << std::endl;
 
 	//удаляем последний элемент, должно быть выведено "8"
 	l->remove(l->size() - 1);
-	cout << l->get(l->size() - 1) << endl;
+	std::cout << l->get(l->size() - 1) << std::endl;
 
 	//удаляем четвертый элемент, должно быть выведено "6"
 	l->remove(4);
-	cout << l->get(4) << endl;
+	std::cout << l->get(4) << std::endl;
 
 	delete l;
 }
@@ -49,21 +49,21 @@ void check_vector() {
 
 	// выведем на экран, должно получиться "0 1 2 3 4 5 6 7 8 9"
 	for (int i = 0; i < 10; i++) {
-		cout << v->get(i) << " ";
+		std::cout << v->get(i) << " ";
 	}
-	cout << endl;
+	std::cout << std::endl;
 
 	//удаляем первый элемент, должно быть выведено "1"
 	v->remove(0);
-	cout << v->get(0) << endl;
+	std::cout << v->get(0) << std::endl;
 
 	//удаляем последний элемент, должно быть выведено "8"
 	v->remove(v->size() - 1);
-	cout << v->get(v->size() - 1) << endl;
+	std::cout << v->get(v->size() - 1) << std::endl;
 
 	//удаляем четвертый элемент, должно быть выведено "6"
 	v->remove(4);
-	cout << v->get(4) << endl;
+	std::cout << v->get(4) << std::endl;
 
 	delete v;
 }
@@ -75,13 +75,13 @@ void check_stack() {
 		st->push(i);
 	}
 
-	cout << st->size() << endl; //должно быть 10
+	std::cout << st->size() << std::endl; //должно быть 10
 
 	// должно получиться "9 8 7 6 5 4 3 2 1 0"
 	while (st->size() > 0) {
-		cout << st->pop() << " ";
+		std::cout << st->pop() << " ";
 	}
-	cout << endl;
+	std::cout << std::endl;
 
 	delete st;
 }
@@ -93,13 +93,13 @@ void check_queue() {
 		q->enqueue(i);
 	}
 
-	cout << q->size() << endl; //должно быть 10
+	std::cout << q->size() << std::endl; //должно быть 10
 
 	// должно получиться "0 1 2 3 4 5 6 7 8 9"
 	while (q->size() > 0) {
-		cout << q->dequeue() << " ";
+		std::cout << q->dequeue() << " ";
 	}
-	cout << endl;
+	std::cout << std::endl;
 
 	delete q;
 
@@ -124,11 +124,27 @@ void check_priority_queue() {
 
 
 	// должно быть выведено 15 10 8
-	cout << pq -> dequeue() << endl;
-	cout << pq -> dequeue() << endl;
-	cout << pq -> dequeue() << endl;
+	std::cout << pq -> dequeue() << std::endl;
+	std::cout << pq -> dequeue() << std::endl;
+	std::cout << pq -> dequeue() << std::endl;
 
 	delete pq;
+}
+
+void check_tree() {
+	binary_tree * bt = new binary_tree();
+	bt -> add(5);
+	bt -> print_in_order();
+	std::cout << std::endl;
+	bt -> add(8);
+	bt -> add(2);
+	bt -> add(7);
+	bt -> add(9);
+	bt -> add(3);
+	bt -> add(4);
+	bt -> print_in_order();
+	std::cout << std::endl;
+	delete bt;
 }
 
 
@@ -136,7 +152,8 @@ void check_priority_queue() {
 int main() {
 	// раскомментируйте вызов соответствующего метода для структуры данных, которую хотите проверить
 	//check_list();
-	check_vector();
+	//check_vector();
+	check_tree();
 	//check_stack();
 	//check_queue();
 	//check_minstack();
